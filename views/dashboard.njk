@@ -1,0 +1,30 @@
+{% extends "_templates/base.njk" %}
+
+{% macro showUser(id, profile) %}
+    {% if profile %}
+        <li><a href="/dashboard/{{id}}">{{profile.first_name}} {{profile.last_name}}</a></li>
+    {% else %}
+        <li><a href="/dashboard/{{id}}">Unnamed user</a></li>
+    {% endif %}
+{% endmacro %}
+
+{% block main %}
+
+{# Uncomment this line to see repository dump of information #}
+{# {{ repos | dump }} #}
+
+<h1 class='page-header'>{{ title }}</h1>
+{% if user %}
+    <div id="dashboard"></div>
+{% endif %}
+
+{% if applicants %}
+    <ul>
+    {% for user in applicants %}
+        {{showUser(user._id, user.profile)}}
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "_templates/base.njk" %}
+
+{% block main %}
+
+<h1 class='page-header'>Profile</h1>
+
+<div class="col-md-9 mx-auto">
+
+  <h2 class='page-header'>Account</h2>
+  <div class="row justify-content-around mb-3">
+    <div class="col-sm-6 col-md-5 mb-4">
+      <h3>Basic Information</h3>
+
+      <form method="POST" action="/account/profile">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input name='email' value='{{ user.email }}' type="email" class="form-control" id="email" aria-describedby="emailHelp" >
+          {# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> #}
+        </div>
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input name='firstName' value='{{ user.profile.first_name }}' type="text" class="form-control" id="firstName" aria-describedby="firstName" >
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last name</label>
+          <input name='lastName' value='{{ user.profile.last_name }}' type="text" class="form-control" id="lastName" aria-describedby="lastName" >
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+
+    </div>
+    <div class="col-sm-6 col-md-5 mb-4">
+      <h3>Change Password</h3>
+      <form method="POST" action="/account/password">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <div class="form-group">
+          <label for="currentPassword">Verify Current Password</label>
+          <input name='currentPassword' type="password" class="form-control" id="currentPassword">
+        </div>
+        <div class="form-group"><div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input name='newPassword' type="password" class="form-control" id="newPassword">
+        </div>
+          <label for="confirmNewPassword">Confirm New Password</label>
+          <input name='confirmNewPassword' type="password" class="form-control" id="confirmNewPassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <h2 class='page-header'>Social</h2>
+  <div class="row justify-content-around mb-3">
+
+    <div class="col-md-6 mb-4">
+
+      <div class="d-flex align-items-center mb-2">
+        <a href='/auth/github' class="btn btn-block btn-social btn-github {% if user.github %}disabled{% endif %}">
+          <span class="fa fa-github"></span>Link Github Account
+        </a>
+        {% if user.github %}
+        <div class="ml-1"><a href='/account/unlink/github' class="text-danger">unlink</a></div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class='page-header'>Delete Account</h2>
+  <div class="row justify-content-around mb-3">
+    <div class="col-md-6 mb-4">
+      <form method='POST' action="/account/delete">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button type="submit" class="btn btn-danger btn-lg btn-block">Delete Account</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

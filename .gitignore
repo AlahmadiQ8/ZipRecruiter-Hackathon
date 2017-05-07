@@ -1,0 +1,16 @@
+# Static assets
+
+public/scripts
+public/stylesheets
+
+# Node build artifacts
+
+node_modules
+npm-debug.log
+
+# API keys and secrets
+*.env
+
+# OS metadata
+.DS_Store
+Thumbs.db

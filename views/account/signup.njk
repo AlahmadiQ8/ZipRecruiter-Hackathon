@@ -1,0 +1,70 @@
+{% extends "_templates/base.njk" %}
+
+{% block main %}
+
+<h1 class='page-header'>Create an Account</h1>
+
+<div class="col-md-8 mx-auto">
+
+  <form method='POST'>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+    <div class="form-group row">
+      <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input name='email' type="email" class="form-control" id="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="firstName" class="col-sm-3 col-form-label">First name</label>
+      <div class="col-sm-9">
+        <input name='firstName' type="text" class="form-control" id="firstName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lastName" class="col-sm-3 col-form-label">Last name</label>
+      <div class="col-sm-9">
+        <input name='lastName' type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+      <div class="col-sm-9">
+        <input name='password' type="password" class="form-control" id="password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="confirmPassword" class="col-sm-3 col-form-label">Confirm Password</label>
+      <div class="col-sm-9">
+        <input name='confirmPassword' type="password" class="form-control" id="confirmPassword">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="github" class="col-sm-3 col-form-label">Github username</label>
+      <div class="col-sm-9">
+        <input name='github' type="text" class="form-control" id="github">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="stackoverflow" class="col-sm-3 col-form-label">Stackoverflow username</label>
+      <div class="col-sm-9">
+        <input name='stackoverflow' type="text" class="form-control" id="stackoverflow">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-3 col-sm-9">
+        <label class="form-check-label">
+          <input name='isAdmin' class="form-check-input" type="checkbox">
+          Admin
+        </label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

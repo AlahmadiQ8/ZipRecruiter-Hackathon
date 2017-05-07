@@ -1,0 +1,67 @@
+// This is the base scss file that is delivered to all of the pages
+
+
+.border-bottom {
+  border-bottom: 1px solid #ededed;
+}
+
+.page-header {
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #ededed;
+}
+
+body {
+  background: #f5f6f7;
+}
+
+.breadcrumb li a{
+  color: #72af07;
+}
+
+.job-desc {
+  margin: 40px 0;
+}
+
+.applicantlist-box {
+  background: white; 
+  padding: 3% 10%;
+  margin: 2%;
+  border: 1px solid #e0e2e3;
+  display: block;
+}
+
+
+.user-row, .user-root {
+    cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.icons {
+  padding-left: 20%;
+  width: 30%;
+}
+.icons a {
+  color: black;
+  padding-left: 20%;
+}
+.icons a i:hover {
+  color: #72af07;
+}
+
+.user-expand {
+
+    height: 100px;
+    overflow: hidden;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+
+
+    &.collapse {
+        height: 0px;
+    }
+}
+
